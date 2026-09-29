@@ -179,8 +179,8 @@ const CONTENT = {
         "eyebrow": "Get in touch",
         "title": "Let's create<br>something original.",
         "email": "anushikaajith3000@gmail.com",
-        "phone": "",
-        "whatsapp": "",
+        "phone": "+91 80860 76193",
+        "whatsapp": "+91 80860 76193",
         "whatsappMessage": "Hi Anushika, I saw your portfolio and would like to talk about your artwork.",
         "links": [
             {
