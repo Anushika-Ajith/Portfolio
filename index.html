@@ -613,10 +613,21 @@
             letter-spacing: 0.1em;
         }
 
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
         .contact-email {
             font-size: 14px;
             border-bottom: 1px solid #1d1c1a;
             padding-bottom: 5px;
+        }
+
+        .contact-email[hidden] {
+            display: none;
         }
 
 
@@ -970,7 +981,10 @@
     </div>
 
     <div class="contact-bottom">
-        <a class="contact-email" id="contactEmail"></a>
+        <div class="contact-details">
+            <a class="contact-email" id="contactEmail"></a>
+            <a class="contact-email" id="contactPhone" hidden></a>
+        </div>
         <div class="contact-links" id="contactLinks"></div>
     </div>
 
@@ -1123,6 +1137,27 @@
             }
             contactLinks.appendChild(link);
         });
+
+        const { phone, whatsapp, whatsappMessage } = content.contact;
+
+        if (phone) {
+            const contactPhone = document.getElementById("contactPhone");
+            contactPhone.textContent = phone;
+            contactPhone.href = `tel:${phone.replace(/[^\d+]/g, "")}`;
+            contactPhone.hidden = false;
+        }
+
+        if (whatsapp) {
+            const number = whatsapp.replace(/\D/g, "");
+            const message = whatsappMessage
+                ? `?text=${encodeURIComponent(whatsappMessage)}`
+                : "";
+            const link = el("a", "", "WhatsApp");
+            link.href = `https://wa.me/${number}${message}`;
+            link.target = "_blank";
+            link.rel = "noopener";
+            contactLinks.appendChild(link);
+        }
 
         setupStories(content.stories.items);
     }

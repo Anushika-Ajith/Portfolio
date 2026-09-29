@@ -160,7 +160,7 @@ const CONTENT = {
         "heading": "An artist working across realism, surrealism and abstraction.",
         "paragraphs": [
             "I am Anushika Ajith, an artist based in Kerala, India, working primarily with original oil paintings. My practice explores different subjects and visual approaches, moving between detailed realism, surreal imagery and abstraction.",
-            "I am interested in creating paintings that respond to an idea, a story, a space or a particular visual language. This allows each work to develop according to its subject rather than being restricted to a single style."
+            "I am interested in creating paintings that respond to a particular idea, story, space, or visual language. My work takes shape through exploring different visual approaches, with each painting developing its own style and treatment based on its subject."
         ]
     },
     "project-enquiries": {
@@ -170,7 +170,6 @@ const CONTENT = {
             "Custom oil paintings",
             "Site-specific artwork",
             "Hospitality & interior projects",
-            "Brand & creative collaborations",
             "Existing artwork available for purchase"
         ],
         "buttonText": "Discuss a project →",
@@ -180,6 +179,9 @@ const CONTENT = {
         "eyebrow": "Get in touch",
         "title": "Let's create<br>something original.",
         "email": "anushikaajith3000@gmail.com",
+        "phone": "",
+        "whatsapp": "",
+        "whatsappMessage": "Hi Anushika, I saw your portfolio and would like to talk about your artwork.",
         "links": [
             {
                 "label": "Instagram",
