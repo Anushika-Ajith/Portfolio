@@ -271,23 +271,27 @@
         ========================================= */
 
         .featured {
-            padding-top: 180px;
-            padding-bottom: 180px;
+            padding-top: 110px;
+            padding-bottom: 110px;
         }
 
         .featured-wrapper {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 9vw;
+            grid-template-columns: 1fr 1fr;
+            gap: 6vw;
             align-items: center;
         }
 
         .featured-image {
             cursor: pointer;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .featured-image img {
-            max-height: 850px;
+            width: auto;
+            max-width: 100%;
+            max-height: calc(100vh - 160px);
             object-fit: contain;
         }
 
@@ -688,6 +692,10 @@
             .featured-wrapper {
                 grid-template-columns: 1fr;
                 gap: 60px;
+            }
+
+            .featured-image {
+                justify-content: center;
             }
 
             .studies-grid {
