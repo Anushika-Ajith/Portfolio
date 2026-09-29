@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anushika Ajith — Artist</title>
+
+    <meta
+        name="description"
+        content="Anushika Ajith is an artist based in Kerala working primarily with original oil paintings, realism, surrealism and abstraction."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f1eb;
+            color: #1d1c1a;
+            font-family: "DM Sans", sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 24px 5vw;
+
+            background: rgba(244, 241, 235, 0.92);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 14px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 1px;
+            background: #1d1c1a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding: 150px 5vw 80px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7vw;
+
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 620px;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 28px;
+            opacity: 0.65;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+            font-size: clamp(55px, 8vw, 120px);
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+        }
+
+        .hero h1 em {
+            font-weight: 400;
+        }
+
+        .hero-description {
+            margin-top: 42px;
+            max-width: 450px;
+
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            margin-top: 34px;
+
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            border-bottom: 1px solid #1d1c1a;
+            padding-bottom: 6px;
+        }
+
+        .hero-image {
+            height: 75vh;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* =========================================
+           SECTION
+        ========================================= */
+
+        section {
+            padding: 130px 5vw;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            margin-bottom: 70px;
+
+            border-bottom: 1px solid rgba(29, 28, 26, 0.2);
+            padding-bottom: 18px;
+        }
+
+        .section-number {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            opacity: 0.5;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 5vw, 72px);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+        }
+
+
+        /* =========================================
+           ARTWORK GRID
+        ========================================= */
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px 28px;
+        }
+
+        .art-card {
+            cursor: pointer;
+        }
+
+        .art-image {
+            overflow: hidden;
+            background: #ddd8cf;
+            aspect-ratio: 4 / 5;
+        }
+
+        .art-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .art-card:hover img {
+            transform: scale(1.035);
+        }
+
+        .art-info {
+            padding-top: 17px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .art-title {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+        }
+
+        .art-meta {
+            font-size: 11px;
+            opacity: 0.55;
+            text-align: right;
+        }
+
+
+        /* =========================================
+           TAKE UP SPACE
+        ========================================= */
+
+        .featured {
+            padding-top: 180px;
+            padding-bottom: 180px;
+        }
+
+        .featured-wrapper {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 9vw;
+            align-items: center;
+        }
+
+        .featured-image {
+            cursor: pointer;
+        }
+
+        .featured-image img {
+            max-height: 850px;
+            object-fit: contain;
+        }
+
+        .featured-text {
+            max-width: 470px;
+        }
+
+        .featured-label {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.55;
+            margin-bottom: 24px;
+        }
+
+        .featured-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 5vw, 75px);
+            line-height: 1;
+            font-weight: 400;
+        }
+
+        .featured-description {
+            margin-top: 35px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .featured-details {
+            margin-top: 40px;
+
+            border-top: 1px solid rgba(29, 28, 26, 0.2);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid rgba(29, 28, 26, 0.2);
+
+            font-size: 12px;
+        }
+
+        .detail-row span:first-child {
+            opacity: 0.5;
+        }
+
+
+
+        /* =========================================
+           PAINTING STUDIES
+        ========================================= */
+
+        .studies-section {
+            background: #ebe7df;
+        }
+
+        .studies-intro {
+            max-width: 650px;
+            margin-bottom: 55px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .studies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .study-card {
+            cursor: pointer;
+        }
+
+        .study-image {
+            overflow: hidden;
+            background: #ddd8cf;
+            aspect-ratio: 4 / 5;
+        }
+
+        .study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .study-card:hover img {
+            transform: scale(1.035);
+        }
+
+        .study-info {
+            padding-top: 15px;
+        }
+
+        .study-title {
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+        }
+
+        .study-meta {
+            margin-top: 4px;
+            font-size: 11px;
+            opacity: 0.55;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about {
+            background: #1e1d1a;
+            color: #f4f1eb;
+
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 10vw;
+        }
+
+        .about-label {
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        .about-content {
+            max-width: 850px;
+        }
+
+        .about-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 68px);
+            font-weight: 400;
+            line-height: 1.08;
+        }
+
+        .about-content p {
+            margin-top: 35px;
+            max-width: 650px;
+            font-size: 16px;
+            line-height: 1.9;
+            opacity: 0.78;
+        }
+
+
+        /* =========================================
+           COMMISSIONS
+        ========================================= */
+
+        .commission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10vw;
+            align-items: center;
+        }
+
+        .commission h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 6vw, 85px);
+            font-weight: 400;
+            line-height: 0.98;
+        }
+
+        .commission-text {
+            max-width: 560px;
+        }
+
+        .commission-text p {
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .commission-list {
+            margin-top: 35px;
+            border-top: 1px solid rgba(29, 28, 26, 0.2);
+        }
+
+        .commission-list div {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(29, 28, 26, 0.2);
+            font-size: 13px;
+        }
+
+        .commission-button {
+            display: inline-block;
+            margin-top: 35px;
+
+            padding: 15px 25px;
+
+            border: 1px solid #1d1c1a;
+
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            transition: all 0.3s ease;
+        }
+
+        .commission-button:hover {
+            background: #1d1c1a;
+            color: #f4f1eb;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact {
+            min-height: 70vh;
+
+            background: #ddd8cf;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 9vw, 130px);
+            line-height: 0.9;
+            font-weight: 400;
+            max-width: 1000px;
+        }
+
+        .contact-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 100px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 35px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .contact-email {
+            font-size: 14px;
+            border-bottom: 1px solid #1d1c1a;
+            padding-bottom: 5px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #1e1d1a;
+            color: #f4f1eb;
+
+            padding: 25px 5vw;
+
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================================
+           LIGHTBOX
+        ========================================= */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(20, 19, 17, 0.96);
+
+            z-index: 2000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 5vw;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+
+            color: white;
+
+            font-size: 30px;
+            font-weight: 200;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =========================================
+           ARTWORK STORY CAROUSEL
+        ========================================= */
+
+        .story-navigation {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .story-next {
+            appearance: none;
+            border: 1px solid rgba(29, 28, 26, 0.45);
+            background: transparent;
+            color: #1d1c1a;
+            padding: 13px 20px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .story-next:hover {
+            background: #1d1c1a;
+            color: #f4f1eb;
+        }
+
+        .story-counter {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            opacity: 0.5;
+        }
+
+        .story-image img {
+            transition: opacity 0.25s ease;
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 20px 6vw;
+            }
+
+            .nav-links {
+                gap: 16px;
+                font-size: 10px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 130px;
+                gap: 50px;
+            }
+
+            .hero-image {
+                height: 65vh;
+            }
+
+            section {
+                padding: 90px 6vw;
+            }
+
+            .section-header {
+                margin-bottom: 45px;
+            }
+
+            .art-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .featured-wrapper {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .studies-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .commission {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contact-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 35px;
+            }
+
+            .contact-links {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<nav>
+    <a href="#" class="logo" data-text="site.logo"></a>
+    <ul class="nav-links" id="navLinks"></ul>
+</nav>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<header class="hero">
+
+    <div class="hero-text">
+        <div class="eyebrow" data-text="hero.eyebrow"></div>
+        <h1 data-html="hero.title"></h1>
+        <p class="hero-description" data-text="hero.description"></p>
+        <a class="hero-link" id="heroLink" data-text="hero.linkText"></a>
+    </div>
+
+    <div class="hero-image">
+        <img id="heroImage" src="" alt="">
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     WORKS
+========================================= -->
+
+<section id="work">
+
+    <div class="section-header">
+        <h2 class="section-title" data-text="works.title"></h2>
+    </div>
+
+    <div class="art-grid" id="worksGrid"></div>
+
+</section>
+
+
+<!-- =========================================
+     TAKE UP SPACE
+========================================= -->
+
+<section class="featured">
+
+    <div class="featured-wrapper">
+
+        <div class="featured-image story-image" id="storyImageWrap">
+            <img id="storyImage" src="" alt="">
+        </div>
+
+        <div class="featured-text">
+
+            <div class="featured-label" data-text="stories.label"></div>
+
+            <h2 class="featured-title" id="storyTitle"></h2>
+
+            <p class="featured-description" id="storyDescription"></p>
+
+            <div class="featured-details" id="storyDetails"></div>
+
+            <div class="story-navigation">
+                <button type="button" class="story-next" id="storyNext" data-text="stories.nextButton"></button>
+                <span class="story-counter" id="storyCounter"></span>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PAINTING STUDIES
+========================================= -->
+
+<section id="studies" class="studies-section">
+
+    <div class="section-header">
+        <h2 class="section-title" data-text="studies.title"></h2>
+        <span class="section-number" data-text="studies.number"></span>
+    </div>
+
+    <p class="studies-intro" data-text="studies.intro"></p>
+
+    <div class="studies-grid" id="studiesGrid"></div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section id="about" class="about">
+
+    <div class="about-label" data-text="about.label"></div>
+
+    <div class="about-content" id="aboutContent">
+        <h2 data-text="about.heading"></h2>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     COMMISSIONS
+========================================= -->
+
+<section id="commissions" class="commission">
+
+    <div>
+        <h2 data-html="commissions.heading"></h2>
+    </div>
+
+    <div class="commission-text">
+        <p data-text="commissions.intro"></p>
+        <div class="commission-list" id="commissionList"></div>
+        <a class="commission-button" id="commissionButton" data-text="commissions.buttonText"></a>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section id="contact" class="contact">
+
+    <div>
+        <div class="eyebrow" data-text="contact.eyebrow"></div>
+        <h2 class="contact-title" data-html="contact.title"></h2>
+    </div>
+
+    <div class="contact-bottom">
+        <a class="contact-email" id="contactEmail"></a>
+        <div class="contact-links" id="contactLinks"></div>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+    <span data-text="footer.left"></span>
+    <span data-text="footer.right"></span>
+</footer>
+
+
+<!-- =========================================
+     LIGHTBOX
+========================================= -->
+
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">×</span>
+    <img id="lightboxImage" src="" alt="Artwork">
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+    const get = (obj, path) =>
+        path.split(".").reduce((value, key) => value?.[key], obj);
+
+    const pad = number => String(number).padStart(2, "0");
+
+    function el(tag, className, content) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (content !== undefined) node.textContent = content;
+        return node;
+    }
+
+
+    /* =========================================
+       FILL PAGE FROM content.json
+    ========================================= */
+
+    function renderPage(content) {
+
+        document.title = content.site.title;
+        document
+            .querySelector('meta[name="description"]')
+            .setAttribute("content", content.site.description);
+
+        document.querySelectorAll("[data-text]").forEach(node => {
+            node.textContent = get(content, node.dataset.text) ?? "";
+        });
+
+        document.querySelectorAll("[data-html]").forEach(node => {
+            node.innerHTML = get(content, node.dataset.html) ?? "";
+        });
+
+        const navLinks = document.getElementById("navLinks");
+        content.nav.forEach(item => {
+            const li = el("li");
+            const link = el("a", "", item.label);
+            link.href = item.href;
+            li.appendChild(link);
+            navLinks.appendChild(li);
+        });
+
+        const heroLink = document.getElementById("heroLink");
+        heroLink.href = content.hero.linkHref;
+
+        const heroImage = document.getElementById("heroImage");
+        heroImage.src = content.hero.image;
+        heroImage.alt = content.hero.imageAlt;
+
+        const worksGrid = document.getElementById("worksGrid");
+        content.works.items.forEach(work => {
+            const card = el("article", "art-card");
+            card.dataset.image = work.image;
+
+            const imageWrap = el("div", "art-image");
+            const img = el("img");
+            img.src = work.image;
+            img.alt = work.alt;
+            imageWrap.appendChild(img);
+
+            const info = el("div", "art-info");
+            const meta = el("div", "art-meta");
+            meta.innerHTML = work.meta.join("<br>");
+            info.append(el("div", "art-title", work.title), meta);
+
+            card.append(imageWrap, info);
+            worksGrid.appendChild(card);
+        });
+
+        const studiesGrid = document.getElementById("studiesGrid");
+        content.studies.items.forEach(study => {
+            const card = el("article", "study-card");
+            card.dataset.image = study.image;
+
+            const imageWrap = el("div", "study-image");
+            const img = el("img");
+            img.src = study.image;
+            img.alt = study.alt;
+            imageWrap.appendChild(img);
+
+            const info = el("div", "study-info");
+            info.append(
+                el("div", "study-title", study.title),
+                el("div", "study-meta", study.meta)
+            );
+
+            card.append(imageWrap, info);
+            studiesGrid.appendChild(card);
+        });
+
+        const aboutContent = document.getElementById("aboutContent");
+        content.about.paragraphs.forEach(text => {
+            aboutContent.appendChild(el("p", "", text));
+        });
+
+        const commissionList = document.getElementById("commissionList");
+        content.commissions.items.forEach(text => {
+            commissionList.appendChild(el("div", "", text));
+        });
+
+        document.getElementById("commissionButton").href =
+            content.commissions.buttonHref;
+
+        const contactEmail = document.getElementById("contactEmail");
+        contactEmail.textContent = content.contact.email;
+        contactEmail.href = `mailto:${content.contact.email}`;
+
+        const contactLinks = document.getElementById("contactLinks");
+        content.contact.links.forEach(item => {
+            const link = el("a", "", item.label);
+            link.href = item.href;
+            if (item.newTab) {
+                link.target = "_blank";
+                link.rel = "noopener";
+            }
+            contactLinks.appendChild(link);
+        });
+
+        setupStories(content.stories.items);
+    }
+
+
+    /* =========================================
+       ARTWORK STORY CAROUSEL
+    ========================================= */
+
+    function setupStories(stories) {
+
+        let currentStory = 0;
+
+        const storyImageWrap = document.getElementById("storyImageWrap");
+        const storyImage = document.getElementById("storyImage");
+        const storyTitle = document.getElementById("storyTitle");
+        const storyDescription = document.getElementById("storyDescription");
+        const storyDetails = document.getElementById("storyDetails");
+        const storyCounter = document.getElementById("storyCounter");
+        const storyNext = document.getElementById("storyNext");
+
+        function showStory(index) {
+            const story = stories[index];
+
+            storyImage.src = story.image;
+            storyImage.alt = story.alt;
+            storyImageWrap.dataset.image = story.image;
+
+            storyTitle.innerHTML = story.title;
+            storyDescription.innerHTML = story.description;
+
+            storyDetails.innerHTML = "";
+            story.details.forEach(([label, value]) => {
+                const row = el("div", "detail-row");
+                row.append(el("span", "", label), el("span", "", value));
+                storyDetails.appendChild(row);
+            });
+
+            storyCounter.textContent = `${pad(index + 1)} / ${pad(stories.length)}`;
+        }
+
+        storyNext.addEventListener("click", () => {
+            currentStory = (currentStory + 1) % stories.length;
+            storyImage.style.opacity = "0";
+            setTimeout(() => {
+                showStory(currentStory);
+                storyImage.style.opacity = "1";
+            }, 180);
+        });
+
+        showStory(currentStory);
+    }
+
+
+    /* =========================================
+       LIGHTBOX
+    ========================================= */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    document.addEventListener("click", event => {
+        const artwork = event.target.closest(
+            ".art-card, .featured-image, .study-card"
+        );
+        if (!artwork) return;
+
+        lightboxImage.src = artwork.dataset.image;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", event => {
+        if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeLightbox();
+    });
+
+
+    /* =========================================
+       LOAD
+    ========================================= */
+
+    fetch("content.json")
+        .then(response => {
+            if (!response.ok) throw new Error(response.status);
+            return response.json();
+        })
+        .then(renderPage)
+        .catch(error => {
+            console.error("Could not load content.json", error);
+            document.body.insertAdjacentHTML(
+                "afterbegin",
+                `<p style="padding:120px 5vw 0;color:#a33;">
+                    Could not load content.json. Open this page through a
+                    local server (for example Live Server) instead of
+                    double-clicking the file.
+                </p>`
+            );
+        });
+
+</script>
+
+</body>
+</html>
