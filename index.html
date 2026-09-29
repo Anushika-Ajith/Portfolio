@@ -427,53 +427,29 @@
             background: #ebe7df;
         }
 
+        #studies {
+            padding-top: 110px;
+        }
+
+        #studies .section-header {
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        #studies .art-image {
+            height: calc(100vh - 480px);
+            min-height: 260px;
+        }
+
+        #studies .section-number {
+            margin-right: 10px;
+        }
+
         .studies-intro {
             max-width: 650px;
-            margin-bottom: 55px;
+            margin-bottom: 30px;
             font-size: 15px;
             line-height: 1.9;
-        }
-
-        .studies-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .study-card {
-            cursor: pointer;
-        }
-
-        .study-image {
-            overflow: hidden;
-            background: #ddd8cf;
-            aspect-ratio: 4 / 5;
-        }
-
-        .study-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
-        }
-
-        .study-card:hover img {
-            transform: scale(1.035);
-        }
-
-        .study-info {
-            padding-top: 15px;
-        }
-
-        .study-title {
-            font-family: "Playfair Display", serif;
-            font-size: 19px;
-        }
-
-        .study-meta {
-            margin-top: 4px;
-            font-size: 11px;
-            opacity: 0.55;
         }
 
 
@@ -792,11 +768,6 @@
                 justify-content: center;
             }
 
-            .studies-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .about {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -925,12 +896,20 @@
 
     <div class="section-header">
         <h2 class="section-title" data-text="studies.title"></h2>
-        <span class="section-number" data-text="studies.number"></span>
+        <div class="carousel-controls">
+            <span class="section-number" data-text="studies.number"></span>
+            <button type="button" class="carousel-button" id="studiesPrev" aria-label="Previous studies">←</button>
+            <button type="button" class="carousel-button" id="studiesNext" aria-label="Next studies">→</button>
+        </div>
     </div>
 
     <p class="studies-intro" data-text="studies.intro"></p>
 
-    <div class="studies-grid" id="studiesGrid"></div>
+    <div class="works-carousel">
+        <div class="art-grid" id="studiesGrid"></div>
+    </div>
+
+    <div class="carousel-dots" id="studiesDots"></div>
 
 </section>
 
@@ -1067,48 +1046,8 @@
         heroImage.src = content.hero.image;
         heroImage.alt = content.hero.imageAlt;
 
-        const worksGrid = document.getElementById("worksGrid");
-        content.works.items.forEach(work => {
-            const card = el("article", "art-card");
-            card.dataset.image = work.image;
-
-            const imageWrap = el("div", "art-image");
-            const img = el("img");
-            img.src = work.image;
-            img.alt = work.alt;
-            imageWrap.appendChild(img);
-
-            const info = el("div", "art-info");
-            const meta = el("div", "art-meta");
-            meta.innerHTML = work.meta.join("<br>");
-            info.append(el("div", "art-title", work.title), meta);
-
-            card.append(imageWrap, info);
-            worksGrid.appendChild(card);
-        });
-
-        setupWorksCarousel(worksGrid);
-
-        const studiesGrid = document.getElementById("studiesGrid");
-        content.studies.items.forEach(study => {
-            const card = el("article", "study-card");
-            card.dataset.image = study.image;
-
-            const imageWrap = el("div", "study-image");
-            const img = el("img");
-            img.src = study.image;
-            img.alt = study.alt;
-            imageWrap.appendChild(img);
-
-            const info = el("div", "study-info");
-            info.append(
-                el("div", "study-title", study.title),
-                el("div", "study-meta", study.meta)
-            );
-
-            card.append(imageWrap, info);
-            studiesGrid.appendChild(card);
-        });
+        fillCarousel("works", content.works.items);
+        fillCarousel("studies", content.studies.items);
 
         const aboutContent = document.getElementById("aboutContent");
         content.about.paragraphs.forEach(text => {
@@ -1164,15 +1103,41 @@
 
 
     /* =========================================
-       WORKS CAROUSEL
+       PAINTING CAROUSELS (WORKS + STUDIES)
     ========================================= */
 
-    function setupWorksCarousel(track) {
+    function fillCarousel(name, items) {
+
+        const track = document.getElementById(`${name}Grid`);
+
+        items.forEach(item => {
+            const card = el("article", "art-card");
+            card.dataset.image = item.image;
+
+            const imageWrap = el("div", "art-image");
+            const img = el("img");
+            img.src = item.image;
+            img.alt = item.alt;
+            imageWrap.appendChild(img);
+
+            const info = el("div", "art-info");
+            const meta = el("div", "art-meta");
+            meta.innerHTML = [].concat(item.meta || []).join("<br>");
+            info.append(el("div", "art-title", item.title), meta);
+
+            card.append(imageWrap, info);
+            track.appendChild(card);
+        });
+
+        setupCarousel(name, track);
+    }
+
+    function setupCarousel(name, track) {
 
         const cards = [...track.children];
-        const dotsWrap = document.getElementById("worksDots");
-        const prev = document.getElementById("worksPrev");
-        const next = document.getElementById("worksNext");
+        const dotsWrap = document.getElementById(`${name}Dots`);
+        const prev = document.getElementById(`${name}Prev`);
+        const next = document.getElementById(`${name}Next`);
 
         let current = Math.min(1, cards.length - 1);
 
@@ -1287,7 +1252,7 @@
 
     document.addEventListener("click", event => {
         const artwork = event.target.closest(
-            ".art-card.is-active, .featured-image, .study-card"
+            ".art-card.is-active, .featured-image"
         );
         if (!artwork) return;
 
