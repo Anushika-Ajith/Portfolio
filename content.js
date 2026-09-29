@@ -152,7 +152,14 @@ const CONTENT = {
                 "meta": "Oil on canvas",
                 "image": "images/bell.jpeg",
                 "alt": "Painting Study III"
+            },
+            {
+                "title": "Study IV",
+                "meta": "Oil on canvas",
+                "image": "images/bottle.jpg",
+                "alt": "Painting Study IV"
             }
+
         ]
     },
     "about": {
