@@ -844,16 +844,16 @@
      COMMISSIONS
 ========================================= -->
 
-<section id="commissions" class="commission">
+<section id="project-enquiries" class="commission">
 
     <div>
-        <h2 data-html="commissions.heading"></h2>
+        <h2 data-html="project-enquiries.heading"></h2>
     </div>
 
     <div class="commission-text">
-        <p data-text="commissions.intro"></p>
+        <p data-text="project-enquiries.intro"></p>
         <div class="commission-list" id="commissionList"></div>
-        <a class="commission-button" id="commissionButton" data-text="commissions.buttonText"></a>
+        <a class="commission-button" id="commissionButton" data-text="project-enquiries.buttonText"></a>
     </div>
 
 </section>
@@ -901,6 +901,8 @@
 <!-- =========================================
      JAVASCRIPT
 ========================================= -->
+
+<script src="content.js"></script>
 
 <script>
 
@@ -999,12 +1001,12 @@
         });
 
         const commissionList = document.getElementById("commissionList");
-        content.commissions.items.forEach(text => {
+        content["project-enquiries"].items.forEach(text => {
             commissionList.appendChild(el("div", "", text));
         });
 
         document.getElementById("commissionButton").href =
-            content.commissions.buttonHref;
+            content["project-enquiries"].buttonHref;
 
         const contactEmail = document.getElementById("contactEmail");
         contactEmail.textContent = content.contact.email;
@@ -1113,23 +1115,17 @@
        LOAD
     ========================================= */
 
-    fetch("content.json")
-        .then(response => {
-            if (!response.ok) throw new Error(response.status);
-            return response.json();
-        })
-        .then(renderPage)
-        .catch(error => {
-            console.error("Could not load content.json", error);
-            document.body.insertAdjacentHTML(
-                "afterbegin",
-                `<p style="padding:120px 5vw 0;color:#a33;">
-                    Could not load content.json. Open this page through a
-                    local server (for example Live Server) instead of
-                    double-clicking the file.
-                </p>`
-            );
-        });
+    if (typeof CONTENT === "undefined") {
+        document.body.insertAdjacentHTML(
+            "afterbegin",
+            `<p style="padding:120px 5vw 0;color:#a33;">
+                Could not load content.js. Check it for a missing comma
+                or quote (the browser console shows the exact line).
+            </p>`
+        );
+    } else {
+        renderPage(CONTENT);
+    }
 
 </script>
 
