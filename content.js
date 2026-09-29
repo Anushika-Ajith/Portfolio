@@ -39,21 +39,12 @@ const CONTENT = {
         "title": "Works",
         "items": [
             {
-                "title": "Take Up Space",
-                "meta": [
-                    "Oil on canvas",
-                    "2026"
-                ],
-                "image": "images/take-up-space.png",
-                "alt": "Take Up Space"
-            },
-            {
-                "title": "Untitled II",
+                "title": "Heavy, it waits",
                 "meta": [
                     "Oil on canvas"
                 ],
                 "image": "images/painting-2.jpg",
-                "alt": "Untitled II"
+                "alt": "Heavy, it waits"
             },
             {
                 "title": "Empty Hour",
@@ -64,12 +55,12 @@ const CONTENT = {
                 "alt": "Empty Hour"
             },
             {
-                "title": "Untitled VI",
+                "title": "A still life arrangement with apples and oranges",
                 "meta": [
                     "Oil on canvas"
                 ],
                 "image": "images/painting-6.jpg",
-                "alt": "Untitled VI"
+                "alt": "A still life arrangement with apples and oranges"
             }
         ]
     },
@@ -98,10 +89,10 @@ const CONTENT = {
                 ]
             },
             {
-                "title": "Artwork<br>Two",
+                "title": "Heavy, it waits",
                 "image": "images/painting-2.jpg",
                 "alt": "Artwork Two",
-                "description": "Add the story or concept behind this painting here. This space can explain the idea, inspiration or subject of the work.",
+                "description": "This painting explores how problems can accumulate until they feel overwhelming. The figure stands before everything that has piled up, suggesting the weight of having to face and address each problem as it continues to overflow.",
                 "details": [
                     [
                         "Medium",
@@ -121,7 +112,7 @@ const CONTENT = {
                 "title": "Empty<br>Hour",
                 "image": "images/empty-hour.jpg",
                 "alt": "Empty Hour",
-                "description": "Add the story or concept behind this painting here. Each artwork can have its own description while keeping the same visual layout.",
+                "description": "This painting was initially inspired by Edward Hopper’s paintings and the way he portrayed loneliness and emptiness. I wanted to capture a similar sense of quietness and isolation, focusing on an ordinary space that feels strangely still and empty.",
                 "details": [
                     [
                         "Medium",
